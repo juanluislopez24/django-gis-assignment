@@ -37,7 +37,7 @@ Data consisting of 355 items with geographical features was shared in a geojson 
 4. POST GEOJSON data with a python script.
 5. Use JWT for authentication.
 6. Implement appropiate tests.
-7. Provide a Dockerfile and docker-compose.yml files for deployment.
+7. TODO: Provide a Dockerfile and docker-compose.yml files for deployment. 
 
 ### Setup
 1. Install Postgresql with postgis extension.
@@ -114,6 +114,8 @@ Go to `http://127.0.0.1:8000/api/` in your browser or tool.
 `http://127.0.0.1:8000/api/municipalities/?in_bbox=xmin,ymin,xmax,ymax`
 
 Get new token by passing user and password and POST to `http://127.0.0.1:8000/api/token/`
+
+Run tests with `python manage.py test`
 
 
 ### Upload data
