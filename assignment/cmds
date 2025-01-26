@@ -1,0 +1,10 @@
+createdb  <db name>
+$ psql <db name>
+CREATE EXTENSION postgis;
+
+
+http://127.0.0.1:8000/api/municipalities/?in_bbox=6.885405186403255,53.345128040081015,6.885405186403256,53.345128040081016
+
+
+
+http -a admin http://127.0.0.1:8000/api/token
