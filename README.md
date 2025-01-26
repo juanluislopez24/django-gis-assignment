@@ -68,7 +68,7 @@ $ psql <db name>
 > CREATE EXTENSION postgis;
 > CREATE USER admin PASSWORD 'admin';
 ```
-remember the `;` at the end of the extension creation!
+remember the `;` at the end of the lines!
 
 4. Clone the repository.
 ```
