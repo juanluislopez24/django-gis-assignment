@@ -17,17 +17,19 @@ class MunicipalityViewTestCase(TestCase):
         return {"HTTP_AUTHORIZATION":f'Bearer {refresh.access_token}'}
 
     def setUp(self):
+        def create_multipolygon(base):
+            """returns a multipolygon based on a base coordinate"""
+            poly = Polygon(((base, base), (base, base + 1), (base + 1, base + 1), (base, base)))
+            poly_2 = Polygon(((base + 1, base + 1), (base + 1, base + 2), (base + 2, base + 2), (base + 1, base + 1)))
+            gc = GeometryCollection(poly, poly_2)
+            return gc
+        
+        gc = create_multipolygon(0)
         number_of_municipalities = 150
-        poly = Polygon(((0, 0), (0, 1), (1, 1), (0, 0)))
-        poly_2 = Polygon(((1, 1), (1, 2), (2, 2), (1, 1)))
-        gc = GeometryCollection(poly, poly_2)
-
         for n in range(number_of_municipalities):
             Municipality.objects.create(name='Test 1', geom=gc)
 
-        poly = Polygon(((4, 4), (4, 5), (5, 5), (4, 4)))
-        poly_2 = Polygon(((5, 5), (5, 6), (6, 6), (5, 5)))
-        gc = GeometryCollection(poly, poly_2)
+        gc = create_multipolygon(4)
         Municipality.objects.create(name='Test 2', geom=gc)
         
 
